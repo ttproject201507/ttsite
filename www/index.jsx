@@ -95,7 +95,7 @@
     render: function() {
       var com = this;
       var btnStyle = {
-        "padding": "5px 5px",
+        "padding": "10px 10px",
         "vertical-align": "middle",
         "margin": "0 0",
         "position": "relative",
@@ -119,14 +119,22 @@
       var ulStyle = {
         "display": "table",
         "margin": "0 0 0 0",
-        "padding": "0 0"
+        "padding": "0 0 0 0"
 
       };
 
-      var liStyle = {
+      var liStyle0 = {
         "display": "table-cell",
         "margin": "0 0 0 0",
-        "padding": "0 0",
+        "padding": "0 0 0 0",
+        "vertical-align": "middle",
+        "text-align": "center"
+      };
+
+      var liStyle1 = {
+        "display": "table-cell",
+        "margin": "0 0 0 0",
+        "padding": "0 0 0 0",
         "vertical-align": "middle",
         "text-align": "center"
       };
@@ -136,9 +144,9 @@
         <button onMouseDown={com.onMouseDown} onMouseEnter={com.onMouseEnter} onMouseLeave={com.onMouseLeave} onMouseUp={com.onMouseUp} style={btnStyle}>
 
           <ul style={ulStyle}>
-            <li style={liStyle}>
+            <li style={liStyle0}>
               <img height="50" src={imageLink}/></li>
-            <li style={liStyle}>
+            <li style={liStyle1}>
               {com.props.txt}</li>
           </ul>
 
@@ -183,7 +191,7 @@
         "display": "table",
         "background-color": "red",
         "margin": "0 0 0 0",
-        "padding": "100 100"
+        "padding": "0 0"
       };
 
       var liStyle = {
