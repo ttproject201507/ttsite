@@ -68,28 +68,29 @@
   var socket = io();
 
   var BtnComponent = React.createClass({
-    ___color: ___("#ffae00"),
+
     componentWillMount: function() {
       var com = this;
-      ___.world = com.___color.compute(function(x) {
+      ___.world = com.props.___color.compute(function(x) {
         com.forceUpdate();
       });
+      ___.world = com.props.___color.appear("#ffae00");
     },
-    onMouseOver: function() {
+    onMouseEnter: function() {
       var com = this;
-      ___.world = com.___color.appear("#ffbf22");
+      ___.world = com.props.___color.appear("#ffbf22");
     },
-    onMouseOut: function() {
+    onMouseLeave: function() {
       var com = this;
-      ___.world = com.___color.appear("#ffae00");
+      ___.world = com.props.___color.appear("#ffae00");
     },
     onMouseDown: function() {
       var com = this;
-      ___.world = com.___color.appear("#ddaa11");
+      ___.world = com.props.___color.appear("#ddaa11");
     },
     onMouseUp: function() {
       var com = this;
-      ___.world = com.___color.appear("#ffbf22");
+      ___.world = com.props.___color.appear("#ffbf22");
     },
     render: function() {
       var com = this;
@@ -98,11 +99,10 @@
         "vertical-align": "middle",
         "margin": "0 0",
         "position": "relative",
-        "background-color": com.___color.now(),
+        "background-color": com.props.___color.now(),
         "border-radius": "4px",
         "color": "#222",
         "font-size": "30px",
-//    "line-height": "42px",
         "-webkit-transition": " none",
         "transition": "none",
         "text-shadow": "0 1px 1px rgba(0, 0, 0, .3)"
@@ -130,8 +130,10 @@
         "vertical-align": "middle",
         "text-align": "center"
       };
+
+      console.log(com.props.___color.now());
       var el = (
-        <button onMouseDown={com.onMouseDown} onMouseOut={com.onMouseOut} onMouseOver={com.onMouseOver} onMouseUp={com.onMouseUp} style={btnStyle}>
+        <button onMouseDown={com.onMouseDown} onMouseEnter={com.onMouseEnter} onMouseLeave={com.onMouseLeave} onMouseUp={com.onMouseUp} style={btnStyle}>
 
           <ul style={ulStyle}>
             <li style={liStyle}>
@@ -195,11 +197,10 @@
 
       var el = (
         <div style={divStyle}>
-
           <ul style={ulStyle}>
             <li style={liStyle}><img height="75" src="./images/ttlogo.png" width="100"/></li>
             <li style={liStyle}>
-              <BtnComponent togo="CHECKOUT" txt="CHECK OUT"/></li>
+              <BtnComponent ___color={___()} togo="CHECKOUT" txt="CHECK OUT"/></li>
           </ul>
 
         </div>
@@ -218,7 +219,8 @@
         <div style={divStyle}>
           this is content<br/>
 
-          <BtnComponent togo="678687678" txt="ADD TO CART"/>
+          <BtnComponent ___color={___()} togo="678687678" txt="ADD TO CART"/>
+          <BtnComponent ___color={___()} togo="454687678" txt="ADD TO CART"/>
         </div>
       );
       return el;
